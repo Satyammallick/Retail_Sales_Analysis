@@ -70,6 +70,3 @@ SELECT DISTINCT(Category)
 FROM data;
 
 
-
-
-SELECT * FROM data LIMIT 100 ;
