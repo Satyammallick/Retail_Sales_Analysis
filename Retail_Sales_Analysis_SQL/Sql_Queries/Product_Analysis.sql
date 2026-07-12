@@ -56,4 +56,3 @@ LIMIT 3;
 
 
 
-SELECT * FROM data LIMIT 100;
