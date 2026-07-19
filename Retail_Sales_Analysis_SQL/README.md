@@ -21,7 +21,7 @@ The objective is to convert raw sales data into actionable business insights.
 
 Dataset: Sample Superstore
 
-Columns Used
+Columns Used,
 Order ID
 Order Date
 Ship Date
@@ -42,8 +42,8 @@ Discount
 Profit
 
 🛠️ Tools Used :-
-SQL (MySQL)
-Power BI
+SQL (MySQL),
+Power BI,
 Microsoft Excel
 
 🧹 Data Cleaning:-
