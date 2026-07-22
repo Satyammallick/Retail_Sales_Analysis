@@ -1,4 +1,4 @@
-# 📊 Retail Sales & Profitability Analysis (SQL & Power BI)
+# 📊 End-to-End Retail Sales & Profitability Analysis (SQL & Power BI)
 
 ![Database](https://img.shields.io/badge/Database-MySQL%2FPostgreSQL-blue)
 ![Language](https://img.shields.io/badge/Language-SQL-orange)
