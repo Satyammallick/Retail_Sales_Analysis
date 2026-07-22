@@ -1,16 +1,16 @@
+-- 1. Create database if it doesn't already exist
+CREATE DATABASE IF NOT EXISTS superstore;  
 
-CREATE DATABASE superstore;  
-
+-- 2. Switch to the database 
 USE superstore; 
 
-SHOW TABLES;
+-- 3. Verifying the table structure 
+DESCRIBE data;   
 
-DESC data;   -- data is the name of table
-
-SELECT *    -- Checking whether our table is imported or not 
+-- checking the dataset
+SELECT *   
 FROM data   
-LIMIT 10;
-
+LIMIT 10; 
 
 
 

@@ -1,55 +1,38 @@
--- 1.Total Records presesnt in the Dataset
-SELECT COUNT(*) AS Total_Records
- FROM data;
 
--- 2. How many unique products are sold?
-
-SELECT COUNT(DISTINCT(`Sub-Category`)) AS unique_products
- FROM data;
-
--- 3.How many categories and sub-categories are there?
-
-SELECT COUNT(DISTINCT(`Category`)) AS categories,
-COUNT(DISTINCT(`Sub-Category`)) AS sub_categories
+-- Total record count
+SELECT COUNT(*) AS total_records 
 FROM data;
- 
- 
- -- 4. Which regions, states, and cities are covered?
- 
- SELECT DISTINCT(Region)  -- unique regions
- FROM data
- ORDER BY Region;
- 
-  SELECT COUNT(DISTINCT(Region)) AS Total_Regions  -- Total number of regions
- FROM data
- ORDER BY Region;
- 
- SELECT DISTINCT(State) -- unique states 
- FROM data
- ORDER BY State;
- 
-  SELECT COUNT(DISTINCT(State)) AS Total_States -- Total number of States
- FROM data
- ORDER BY State;
- 
- SELECT DISTINCT(City) -- Unique cities
- FROM data
- ORDER BY City;
- 
-  SELECT COUNT(DISTINCT(City)) AS Total_cities -- Total Number Of Cities
- FROM data
- ORDER BY City;
- 
- -- 5. Total states in each region
- SELECT Region , COUNT(DISTINCT(State)) AS Total_States
- FROM data 
- GROUP BY Region;
 
+-- Product catalog hierarchy summary
+SELECT 
+    COUNT(DISTINCT Category) AS total_categories,
+    COUNT(DISTINCT `Sub-Category`) AS total_sub_categories
+FROM data;
 
-SELECT *FROM data
-LIMIT 100;
+-- Overall geographic footprint
+SELECT 
+    COUNT(DISTINCT Region) AS total_regions,
+    COUNT(DISTINCT State) AS total_states,
+    COUNT(DISTINCT City) AS total_cities
+FROM data;
 
+-- Stae Distribution per region
+SELECT 
+    Region, 
+    COUNT(DISTINCT State) AS total_states
+FROM data
+GROUP BY Region
+ORDER BY total_states DESC;
 
+--  Customer Segment overview
+SELECT 
+    Segment,
+    COUNT(*) AS total_orders,
+    ROUND(SUM(Sales), 2) AS total_sales,
+    ROUND(SUM(Profit), 2) AS total_profit
+FROM data
+GROUP BY Segment
+ORDER BY total_sales DESC;
 
 
 
