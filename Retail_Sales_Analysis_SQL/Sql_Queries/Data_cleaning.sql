@@ -1,3 +1,7 @@
+-- changing the datatype 
+ALTER TABLE data 
+MODIFY COLUMN `Postal Code` VARCHAR(10);
+
 -- 1. Are there any NULL values in the dataset?
 
 SELECT 
@@ -50,23 +54,40 @@ SELECT
     Profit
     HAVING COUNT(*) > 1;
 
--- 3. Are there any negative Sales values?
-SELECT * FROM data WHERE Sales < 0;
-
--- 4.Are there any negative Quantity values?
-SELECT * FROM data WHERE quantity < 0;
-
--- 5. Which rows have negative Profit?
-SELECT COUNT(*) FROM data WHERE profit < 0;
-
--- 6.Are all Discount values within a valid range (0–1)?
-SELECT * FROM data WHERE discount NOT BETWEEN 0 AND 1;
-
--- 7.Does every row have a valid Category and Region?
-SELECT DISTINCT(Region)
+-- 3. Checks for illegal negative sales/quantities or out-of-range discounts (0 to 1)
+SELECT 
+    SUM(CASE WHEN Sales < 0 THEN 1 ELSE 0 END) AS negative_sales_count,
+    SUM(CASE WHEN Quantity < 0 THEN 1 ELSE 0 END) AS negative_quantity_count,
+    SUM(CASE WHEN Discount NOT BETWEEN 0 AND 1 THEN 1 ELSE 0 END) AS invalid_discount_count,
+    SUM(CASE WHEN Profit < 0 THEN 1 ELSE 0 END) AS negative_profit_rows
 FROM data;
 
-SELECT DISTINCT(Category)
+-- 4.DISTINCT CATEGORICAL 
+SELECT 
+    COUNT(DISTINCT Region) AS total_regions,
+    COUNT(DISTINCT Category) AS total_categories,
+    COUNT(DISTINCT `Sub-Category`) AS total_sub_categories
+FROM data;
+
+-- -- 5. REMOVE DUPLICATE ROWS FROM THE DATASET
+-- Step 1: Create a deduplicated temporary table
+CREATE TABLE data_temp AS 
+SELECT DISTINCT * 
+FROM data;
+
+-- Step 2: Empty the original table
+TRUNCATE TABLE data;
+
+-- Step 3: Insert unique rows back into 'data'
+INSERT INTO data 
+SELECT * FROM data_temp;
+
+-- Step 4: Drop the temporary table
+DROP TABLE data_temp;
+
+-- Step 5: Verify clean row count (Should return 9,977)
+SELECT COUNT(*) AS total_rows 
 FROM data;
 
 
+ 
