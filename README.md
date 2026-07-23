@@ -1,3 +1,17 @@
+# 📊 End-to-End Retail Sales & Profitability Analysis (SQL & Power BI)
+
+![Database](https://img.shields.io/badge/Database-MySQL%2FPostgreSQL-blue)
+![Language](https://img.shields.io/badge/Language-SQL-orange)
+![Tool](https://img.shields.io/badge/Visualization-Power_BI-yellow)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+
+An end-to-end exploratory data analysis and business performance audit of the North American Superstore dataset using **SQL** and **Power BI**. This project evaluates key business metrics—revenue generation, profit margins, discounting impact, logistics behavior, and category performance—to identify actionable strategies for margin optimization.
+
+---
+
+## 📁 Repository Structure
+
+```text
 retail_sales/
 ├── 📄 README.md                        # Project documentation & repository guide
 ├── 📄 business_insights.md             # Executive summary & strategic recommendations
@@ -69,9 +83,3 @@ Promote High-Margin SKUs: Reallocate marketing budget and catalog feature spots 
 SQL Scripts:
 
 Import dataset/SampleSuperstore_Cleaned.csv into your database engine (MySQL, PostgreSQL, etc.) as a table named data.
-
-Execute scripts sequentially from sql_queries/01_data_cleaning.sql through sql_queries/07_advanced_sql.sql.
-
-Power BI Dashboard:
-
-Open power_bi/superstore_dashboard.pbix in Power BI Desktop to explore the interactive visual analytics.
