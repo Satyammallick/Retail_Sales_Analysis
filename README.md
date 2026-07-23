@@ -9,6 +9,13 @@ An end-to-end exploratory data analysis and business performance audit of the No
 
 ---
 
+## 🖼️ Dashboard Preview
+
+![Superstore Power BI Dashboard](images/dashboard_overview.png)
+*Figure 1: Interactive Power BI Executive Dashboard showing top-level KPIs, profit drivers, and regional performance.*
+
+---
+
 ## 📁 Repository Structure
 
 ```text
@@ -17,6 +24,8 @@ retail_sales/
 ├── 📄 business_insights.md             # Executive summary & strategic recommendations
 ├── 📁 dataset/
 │   └── 📄 SampleSuperstore_Cleaned.csv # Cleaned dataset (9,977 unique records)
+├── 📁 images/
+│   └── 📄 dashboard_overview.png       # Power BI report screenshot
 ├── 📁 sql_queries/
 │   ├── 📄 01_data_cleaning.sql        # Schema adjustments, NULL audits & deduplication
 │   ├── 📄 02_sales_analysis.sql       # Total revenue trends & regional performance
@@ -24,7 +33,7 @@ retail_sales/
 │   ├── 📄 04_product_analysis.sql     # Sub-category volume & margin degradation
 │   ├── 📄 05_discount_analysis.sql    # Discount tier impact & margin thresholds
 │   ├── 📄 06_shipping_analysis.sql    # Ship mode volume & order counts
-│   └── 📄 07_advanced_sql.sql        # CTEs, Window Functions (RANK, DENSE_RANK, SUM OVER)
+│   └── 📄 07_advanced_sql.sql         # CTEs, Window Functions (RANK, DENSE_RANK, SUM OVER)
 └── 📁 power_bi/
     └── 📄 superstore_dashboard.pbix   # Interactive Power BI dashboard report
 🗄️ Dataset Overview & Schema
